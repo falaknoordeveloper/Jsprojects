@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        .clock{
+            position: absolute;
+            color:rgb(60, 26, 114);
+            top:50%;
+            left:50%;
+            transform:translateX(-50%) translateY(-50%);
+            font-size: 60px;
+            font-family: orbitron;
+            letter-spacing: 7px;
+            background-color: bisque;
+            padding:12px 7px;
+            border-radius: 4px;
+
+        }
+    </style>
+</head>
+<body>
+    <!-- html code -->
+    <div id="digitalClock" class="clock"></div>
+
+ <!-- js code -->
+    <script type="text/javascript">
+
+        function showtime(){
+     let date=new Date();
+     let hour=date.getHours();
+     let mins=date.getMinutes();
+     let sec=date.getSeconds();
+    //  to show AM
+let session="AM";
+// if(hour==0){
+//     hour=12;
+// }
+// if(hour>12){
+//     hour=hour-12;
+//     session="PM"
+// }
+// if(hour<12){
+//     hour="0"+hour;
+// }
+// if(mins<10){
+//     mins="0"+mins;
+// }
+// if(sec<10){
+//     sec="0"+sec;
+// }
+// using ternary operator
+hour=(hour<10)?"0"+hour:hour;
+mins=(mins<10)?"0"+mins:mins;
+sec=(mins<10)?"0"+sec:sec;
+
+// selecting the node by DOM 
+document.getElementById("digitalClock").innerHTML= hour+":"+mins+":"+sec+""+session;
+
+// to show seconds running/showing
+      setTimeout(showtime,1000);
+        }
+        
+        showtime();
+
+    </script>
+    
+</body>
+</html>
